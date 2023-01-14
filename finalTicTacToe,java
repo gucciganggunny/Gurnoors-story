@@ -1,0 +1,146 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class finalTicTacToe {
+
+    static Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) {
+        
+            System.out.println("\nLet's play tic tac toe");
+
+            char[][] board={
+              {'_','_','_'},
+              {'_','_','_'},
+              {'_','_','_'}
+            };
+          
+        printBoard(board);
+             
+for(int i = 0;i<9;i++){
+  if(i%2==0){
+    System.out.println("Turn: X");
+    int[] Spot=askUser(board);
+    board[Spot[0]][Spot[1]] = 'X';
+    printBoard(board);
+    if(checkWin(board)==3){
+      System.out.println("X wins");
+      break;
+    }else if(checkWin(board)==-3){
+      System.out.println("O wins");
+      break;
+    }
+  }else{
+    System.out.println("Turn: O");
+    int[] Spot=askUser(board);
+    board[Spot[0]][Spot[1]]= 'O';
+    printBoard(board);
+    if(checkWin(board)==3){
+      System.out.println("X wins");
+      break;
+    }else if(checkWin(board)==-3){
+      System.out.println("O wins");
+      break;
+    }
+    
+  }
+  if(i == 8){
+    System.out.println("its a tie");
+  }
+
+  }
+              
+            scan.close();
+        } 
+
+public static char[][] printBoard(char[][] board){
+ System.out.println();
+  for(int i = 0;i<board.length;i++){
+   System.out.print("\t");
+    for(int j = 0;j<board[i].length;j++){
+      System.out.print(board[i][j]+" ");
+    }
+    System.out.println("\n");
+    
+  }
+  return board;
+}
+public static int[] askUser(char[][] board){
+  
+    System.out.print("Pick a row and column number: ");
+    int row = scan.nextInt();
+    int column = scan.nextInt();
+    while(board[row][column]=='X'|| board[row][column]=='O'){  
+      System.out.println("Spot Occupied. Please try again.");
+      System.out.print("Pick a row and column number: ");
+      row = scan.nextInt();
+      column = scan.nextInt();
+    }
+    return new int[]{row, column};
+
+}
+  
+public static int checkWin(char[][] board){
+  int count = 0;
+    if((board[0][0]=='X')&&(board[0][1]=='X')&&(board[0][2]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[0][0]=='O')&&(board[0][1]=='O')&&(board[0][2]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }else if((board[1][0]=='X')&&(board[1][1]=='X')&&(board[1][2]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[1][0]=='O')&&(board[1][1]=='O')&&(board[1][2]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }else if((board[2][0]=='X')&&(board[2][1]=='X')&&(board[2][2]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[2][0]=='O')&&(board[2][1]=='O')&&(board[2][2]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }
+    else if((board[0][0]=='X')&&(board[1][0]=='X')&&(board[2][0]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[0][0]=='O')&&(board[1][0]=='O')&&(board[2][0]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }else if((board[0][1]=='X')&&(board[1][1]=='X')&&(board[2][1]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[0][1]=='O')&&(board[1][1]=='O')&&(board[2][1]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }else if((board[0][2]=='X')&&(board[1][2]=='X')&&(board[2][2]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[0][2]=='O')&&(board[1][2]=='O')&&(board[2][2]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }
+    else if((board[0][0]=='X')&&(board[1][1]=='X')&&(board[2][2]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[0][0]=='O')&&(board[1][1]=='O')&&(board[2][2]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }else if((board[0][2]=='X')&&(board[1][1]=='X')&&(board[2][0]=='X')){
+      System.out.println("X won");
+      System.exit(0);
+    }else if((board[0][2]=='O')&&(board[1][1]=='O')&&(board[2][0]=='O')){
+      System.out.println("O won");
+      System.exit(0);
+    }
+    
+  
+  return count;
+
+}
+}
+
+    
+
+
+
+
